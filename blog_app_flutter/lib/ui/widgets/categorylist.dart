@@ -41,7 +41,7 @@ class _CategoriesListState extends State<CategoriesList> {
                 color: i == _active ? Colors.black : Colors.transparent,
                 borderRadius: BorderRadius.circular(25.0),
               ),
-              margin: i == _active
+              margin: i == 0
                   ? EdgeInsets.only(right: 5.0)
                   : EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
