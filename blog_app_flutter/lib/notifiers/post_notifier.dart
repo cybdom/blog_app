@@ -4,9 +4,9 @@ import 'package:blog_app_flutter/services/api.dart';
 import 'package:flutter/material.dart';
 
 class PostNotifier extends ChangeNotifier {
-  List<PostModel> _posts;
-  PostModel _singlePost;
-  Status _status;
+  late List<PostModel> _posts;
+  late PostModel _singlePost;
+  late Status _status;
   Api _api = Api();
 
   List<PostModel> get posts => _posts;

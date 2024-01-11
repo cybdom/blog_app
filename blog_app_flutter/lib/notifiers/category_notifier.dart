@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class CategoryNotifier extends ChangeNotifier {
   Api api = Api();
-  List<CategoryModel> _categoryModel;
-  Status _status;
+  late List<CategoryModel> _categoryModel;
+  late Status _status;
 
   Status get status => _status;
   List<CategoryModel> get categories => _categoryModel;

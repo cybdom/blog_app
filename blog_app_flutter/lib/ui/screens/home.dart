@@ -1,7 +1,5 @@
 import 'package:blog_app_flutter/global.dart';
-import 'package:blog_app_flutter/models/post.dart';
 import 'package:blog_app_flutter/notifiers/notifiers.dart';
-import 'package:blog_app_flutter/ui/widgets/postslist.dart';
 import 'package:flutter/material.dart';
 import 'package:blog_app_flutter/ui/widgets/widgets.dart';
 import 'package:provider/provider.dart';
@@ -46,13 +44,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           posts: [],
                         ),
                       );
-                      break;
                     case Status.done:
                       return HomeScreenHeader(
                           posts: _allPosts.posts
                               .where((doc) => doc.isTrending)
                               .toList());
-                      break;
+
                     default:
                       return HomeScreenHeader(
                         posts: [],
@@ -67,10 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       return CategoriesList(
                         categories: [],
                       );
-                      break;
+
                     case Status.done:
                       return CategoriesList(categories: snapshot.categories);
-                      break;
+
                     default:
                       return CategoriesList(
                         categories: [],
@@ -92,12 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         return PostsList(
                           posts: [],
                         );
-                        break;
+
                       case Status.done:
                         return PostsList(
                           posts: snapshot.posts,
                         );
-                        break;
+
                       default:
                         return PostsList(
                           posts: [],

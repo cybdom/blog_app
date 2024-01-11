@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 
 class PostContainer extends StatelessWidget {
   final String imageUrl, title, categoryType, authorName, authorId, postId;
-  const PostContainer({
-    Key key,
-    @required this.isTrending,
-    @required this.imageUrl,
-    @required this.title,
-    @required this.categoryType,
-    @required this.authorName,
-    @required this.authorId,
-    @required this.postId,
-  }) : super(key: key);
 
   final bool isTrending;
+
+  const PostContainer(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.categoryType,
+      required this.authorName,
+      required this.authorId,
+      required this.postId,
+      required this.isTrending});
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +41,13 @@ class PostContainer extends StatelessWidget {
                   "$title",
                   style: Theme.of(context)
                       .textTheme
-                      .title
-                      .copyWith(fontWeight: FontWeight.bold),
+                      .titleMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5.0),
                 Row(
                   children: <Widget>[
-                    FlatButton(
+                    TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -62,8 +62,8 @@ class PostContainer extends StatelessWidget {
                         "$categoryType | $authorName",
                         style: Theme.of(context)
                             .textTheme
-                            .body1
-                            .copyWith(color: Colors.grey),
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
                       ),
                     ),
                     isTrending

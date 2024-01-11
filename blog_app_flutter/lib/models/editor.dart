@@ -8,18 +8,20 @@ class EditorModel {
   Status status;
 
   EditorModel({
-    this.image,
-    this.fullname,
-    this.type,
-    this.trending_count,
-    this.bookmarked_count,
-    this.favorite_count,
-    this.awards_count,
-    this.articles,
+    required this.status,
+    required this.image,
+    required this.fullname,
+    required this.type,
+    required this.trending_count,
+    required this.bookmarked_count,
+    required this.favorite_count,
+    required this.awards_count,
+    required this.articles,
   });
 
   factory EditorModel.fromJson(Map<String, dynamic> json) {
     return EditorModel(
+      status: json['status'],
       image: json['image'],
       articles: (json['articles'] as List)
           .map((i) => EditorArticleModel.fromJson(i))
@@ -38,8 +40,8 @@ class EditorArticleModel {
   final String articleId, categoryId;
 
   EditorArticleModel({
-    this.articleId,
-    this.categoryId,
+    required this.articleId,
+    required this.categoryId,
   });
 
   factory EditorArticleModel.fromJson(Map<String, dynamic> json) {

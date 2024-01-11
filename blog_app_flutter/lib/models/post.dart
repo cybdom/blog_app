@@ -12,21 +12,22 @@ class PostModel {
   final bool isTrending;
 
   PostModel({
-    this.id,
-    this.title,
-    this.media,
-    this.content,
-    this.type,
-    this.authorId,
-    this.categoryId,
-    this.categoryName,
-    this.authorName,
-    this.date,
-    this.isTrending,
+    required this.id,
+    required this.title,
+    required this.media,
+    required this.content,
+    required this.type,
+    required this.authorId,
+    required this.categoryId,
+    required this.categoryName,
+    required this.authorName,
+    required this.date,
+    required this.isTrending,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
+      type: json['type'],
       id: json['_id'],
       authorId: json['authorId'],
       authorName: json['authorName'],

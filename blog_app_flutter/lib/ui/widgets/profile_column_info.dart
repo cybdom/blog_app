@@ -5,12 +5,12 @@ class ProfileColumnInfo extends StatelessWidget {
   final String title;
   final int count;
 
-  const ProfileColumnInfo({
-    Key key,
-    @required this.icon,
-    @required this.title,
-    @required this.count,
-  }) : super(key: key);
+  const ProfileColumnInfo(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.count});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +21,7 @@ class ProfileColumnInfo extends StatelessWidget {
         ),
         Text(
           title,
-          style: Theme.of(context).textTheme.subtitle,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
         Text("$count times")
       ],

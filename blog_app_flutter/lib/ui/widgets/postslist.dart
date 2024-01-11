@@ -1,19 +1,14 @@
 import 'package:blog_app_flutter/models/post.dart';
-import 'package:blog_app_flutter/ui/screens/profile.dart';
 import 'package:blog_app_flutter/ui/widgets/postcontainer.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 class PostsList extends StatelessWidget {
-  final Function onTap;
+  final Function? onTap;
   final List<PostModel> posts;
-  final ScrollController scrollController;
-  const PostsList({
-    Key key,
-    this.scrollController,
-    @required this.posts,
-    this.onTap,
-  }) : super(key: key);
+  final ScrollController? scrollController;
+
+  const PostsList(
+      {super.key, this.onTap, required this.posts, this.scrollController});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +23,7 @@ class PostsList extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "Trending Articles",
-                  style: Theme.of(context).textTheme.subtitle.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),

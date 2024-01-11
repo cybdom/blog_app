@@ -10,7 +10,8 @@ import 'package:provider/provider.dart';
 class ProfileScreen extends StatefulWidget {
   final String userId;
 
-  const ProfileScreen({Key key, @required this.userId}) : super(key: key);
+  const ProfileScreen({super.key, required this.userId});
+
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -51,7 +52,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: CircularProgressIndicator(),
                   );
                 }
-                break;
               case Status.done:
                 {
                   return ProfileContent(
@@ -60,7 +60,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     categories: snapshot.categories,
                   );
                 }
-                break;
               default:
                 return Center(
                   child: CircularProgressIndicator(),
@@ -77,12 +76,12 @@ class ProfileContent extends StatelessWidget {
   final EditorModel snapshot;
   final List<PostModel> posts;
   final List<CategoryModel> categories;
-  const ProfileContent({
-    Key key,
-    @required this.snapshot,
-    @required this.posts,
-    @required this.categories,
-  }) : super(key: key);
+
+  const ProfileContent(
+      {super.key,
+      required this.snapshot,
+      required this.posts,
+      required this.categories});
 
   @override
   Widget build(BuildContext context) {
@@ -101,11 +100,14 @@ class ProfileContent extends StatelessWidget {
           ),
         ),
         SizedBox(height: 5.0),
-        Text("${snapshot.fullname}", style: Theme.of(context).textTheme.title),
+        Text("${snapshot.fullname}",
+            style: Theme.of(context).textTheme.titleLarge),
         Text(
           "${snapshot.type}",
-          style:
-              Theme.of(context).textTheme.subtitle.copyWith(color: Colors.grey),
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(color: Colors.grey),
         ),
         SizedBox(height: 15),
         Row(

@@ -6,11 +6,12 @@ import 'package:blog_app_flutter/models/post.dart';
 import "package:http/http.dart" as http;
 
 class Api {
-  final String _baseUrl = "http://192.168.1.101";
+  final String _baseUrl = "192.168.1.102";
 
   // Get all the posts
   Future<List<PostModel>> getPosts() async {
-    final response = await http.get("$_baseUrl/posts");
+    final Uri path = Uri.http(_baseUrl, "/posts");
+    final response = await http.get(path);
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
       return parsed.map<PostModel>((json) => PostModel.fromJson(json)).toList();
@@ -21,8 +22,9 @@ class Api {
 
   // Get all posts of a specific editor
   Future<List<PostModel>> getSpecificEditorPosts(String userId) async {
+    final Uri path = Uri.http(_baseUrl, "/posts/user");
     final response = await http.post(
-      '$_baseUrl/posts/user',
+      path,
       body: json.encode(
         {'id': '$userId'},
       ),
@@ -39,8 +41,9 @@ class Api {
 
   // Get single post by ID
   Future<PostModel> getSinglePost(String id) async {
+    final Uri path = Uri.http(_baseUrl, "/posts/id");
     final response = await http.post(
-      '$_baseUrl/posts/id',
+      path,
       body: json.encode(
         {'id': '$id'},
       ),
@@ -57,8 +60,9 @@ class Api {
 
   // Get Single Editor
   Future getEditor(String id) async {
+    final Uri path = Uri.http(_baseUrl, "/editors/id");
     final response = await http.post(
-      '$_baseUrl/editors/id',
+      path,
       body: json.encode(
         {'id': '$id'},
       ),
@@ -73,7 +77,8 @@ class Api {
 
   // Get All Categories
   Future getCategories() async {
-    final response = await http.get('$_baseUrl/cat');
+    final Uri path = Uri.http(_baseUrl, "/cat");
+    final response = await http.get(path);
     if (response.statusCode == 200) {
       final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
       return parsed

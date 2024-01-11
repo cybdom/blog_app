@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 
 class HomeScreenHeader extends StatefulWidget {
   final List<PostModel> posts;
-  const HomeScreenHeader({
-    Key key,
-    @required this.posts,
-  }) : super(key: key);
+
+  const HomeScreenHeader({super.key, required this.posts});
 
   @override
   _HomeScreenHeaderState createState() => _HomeScreenHeaderState();

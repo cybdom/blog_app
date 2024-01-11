@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 
 class EditorNotifier extends ChangeNotifier {
   Api _api = Api();
-  EditorModel _editor;
-  List<PostModel> _posts;
-  List<CategoryModel> _categories;
-  Status _status;
+  late EditorModel _editor;
+  late List<PostModel> _posts;
+  late List<CategoryModel> _categories;
+  late Status _status;
 
   List<PostModel> get posts => _posts;
   EditorModel get editorInfo => _editor;
